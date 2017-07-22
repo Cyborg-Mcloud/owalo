@@ -48,15 +48,9 @@ function draw()
 	ctx.beginPath();
 	ctx.moveTo(175,175);
 
-	ang=comp+90;
-	if (ang>360)
-		{
-		ang=ang-360;
-		}
-	if (ang<0)
-		{
-		ang=ang+360;
-		}
+	ang=comp;//+90;
+//	if (ang>360){ang=ang-360;}
+//	if (ang<0)	{ang=ang+360;}
 
 	cmx=Math.sin(ang*6.28/360)*50;
 	cmy=-Math.cos(ang*6.28/360)*50;
@@ -72,19 +66,24 @@ function draw()
 		b=objs[i][1]-MyLong;
 		a=111*a;
 		b=111*b;
+		console.log(i+" = "+a " - "+b);
 		a=parseInt(a*1000);
 		b=parseInt(b*1000);
+
+document.getElementById("text").innerHTML+="<img width=20px src='"+objs[i][2]+"'> "+objs[i][3]+" | "+objs[i][0]+ " / "+objs[i][1]+  "[ "+a+" | "+b+" ];
+		
 
 		a=a/3;
 		b=b/3;
 
-		ctx.fillRect(175+b,175-a,5,5);
+document.getElementById("text").innerHTML+="final = "+a+" / "+b+"<BR>";
+
+		ctx.fillRect(175-a,175+b,5,5);
 		ctx.font = "14px Arial";
-		ctx.fillText(objs[i][3],175+b,175-a); 
+		ctx.fillText(objs[i][3],175-a,175+b); 
 
 
 
-		document.getElementById("text").innerHTML+="<img width=20px src='"+objs[i][2]+"'> "+objs[i][3]+" | "+objs[i][0]+ " / "+objs[i][1]+  "[ "+a+" | "+b+" ]<BR>";
 		}
 	
 
@@ -192,8 +191,8 @@ function callback(results, status) {
       var place = results[i];
     //  createMarker(results[i]);
 	objs[i]=new Array();
-	objs[i][0]=results[i].geometry.viewport.f.b;
-	objs[i][1]=results[i].geometry.viewport.b.b;
+	objs[i][0]=parseInt(results[i].geometry.viewport.f.b*1000000)/1000000;
+	objs[i][1]=parseInt(results[i].geometry.viewport.b.b*1000000)/1000000;
 	objs[i][2]=results[i].icon;
 	objs[i][3]=results[i].name;
 
