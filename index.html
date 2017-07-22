@@ -43,7 +43,7 @@ function draw()
 
 	ctx.clearRect(0, 0, canvasWidth, canvasHeight);
 
-	ctx.fillStyle="#00FF00";	
+	ctx.fillStyle="#000000";	
 	
 	ctx.beginPath();
 	ctx.moveTo(175,175);
@@ -65,9 +65,12 @@ function draw()
 		a=parseInt(a*1000);
 		b=parseInt(b*1000);
 
-		ctx.fillRect(175+a,175-b,2,2);
+		a=a/2;
+		b=b/2;
+
+		ctx.fillRect(175-a,175+b,5,5);
 		ctx.font = "14px Arial";
-		ctx.fillText(objs[i][3],175+a,175-b); 
+		ctx.fillText(objs[i][3],175-a,175+b); 
 
 
 
