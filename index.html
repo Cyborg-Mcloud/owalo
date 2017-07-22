@@ -42,7 +42,7 @@ function onDeviceReady()
 	console.log("compass init");
 	//navigator.Compass.getCurrentHeading(onCompassSuccess, onError);
 
-	 var moptions = { frequency: 1000 };
+	 var moptions = { frequency: 100 };
 
 	watchID2 = navigator.compass.watchHeading(onCompassSuccess, onError, moptions);
 
@@ -76,8 +76,8 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 function onCompassSuccess(heading) {
        // alert('Heading: ' + heading.magneticHeading);
-	   console.log("heading: "+heading.magneticHeading);
-document.getElementById("heading_div").innerHTML=heading.magneticHeading;
+	  // console.log("heading: "+heading.magneticHeading);
+document.getElementById("heading_div").innerHTML=parseInt(heading.magneticHeading);
     }
 
 
