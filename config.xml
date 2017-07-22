@@ -60,14 +60,11 @@
 	<feature name="App">
 	  <param name="android-package" value="com.designge.owalo"/>
 	</feature>
-	<feature name="Compass">
-		<param name="android-package" value="org.apache.cordova.deviceorientation.CompassListener" />
-	</feature>
+
   <feature name="File">
         <param name="android-package" value="org.apache.cordova.file.FileUtils" />
     </feature>
-
-<gap:plugin name="org.apache.cordova.device-orientation" spec="0.3.1" source="pgb" />
+<gap:plugin name="cordova-plugin-device-orientation" source="npm" />
 <feature name="http://api.phonegap.com/1.0/geolocation"/>
 	<feature name="http://api.phonegap.com/1.0/device" />
 <gap:plugin name="cordova-plugin-geolocation" source="npm"/>
