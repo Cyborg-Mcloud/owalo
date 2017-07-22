@@ -39,6 +39,7 @@
 <preference name="android-minSdkVersion"      value="11" />         
 <preference name="android-installLocation"    value="auto" />
 <preference name="EnableViewportScale"    value="true" />
+<preference name="permissions" value="none"/>
 
 	<description>
     S-Monitoring
@@ -60,13 +61,6 @@
 <feature name="Compass">
     <param name="android-package" value="org.apache.cordova.deviceorientation.CompassListener" />
 </feature>
-
-<config-file  platform="android" parent="/manifest" mode="add">
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-   <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
-	
-</gap:config-file>  
 
 
 	<feature name="App">
