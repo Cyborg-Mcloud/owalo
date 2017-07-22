@@ -40,6 +40,11 @@ function onDeviceReady()
 	console.log("compass init");
 	navigator.compass.getCurrentHeading(onCompassSuccess, onError);
 
+	 var moptions = { frequency: 1000 };
+
+	watchID2 = navigator.compass.watchHeading(onCompassSuccess, onError, moptions);
+
+
 	//setTimeout("StartWebView();",200); 
     }
 
