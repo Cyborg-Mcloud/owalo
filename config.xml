@@ -66,7 +66,8 @@
   <feature name="File">
         <param name="android-package" value="org.apache.cordova.file.FileUtils" />
     </feature>
-<gap:plugin name="cordova-plugin-device-orientation" source="npm" />
+
+<gap:plugin name="org.apache.cordova.device-orientation" spec="0.3.1" source="pgb" />
 <feature name="http://api.phonegap.com/1.0/geolocation"/>
 	<feature name="http://api.phonegap.com/1.0/device" />
 <gap:plugin name="cordova-plugin-geolocation" source="npm"/>
