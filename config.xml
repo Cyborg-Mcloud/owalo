@@ -2,11 +2,11 @@
 
 <widget xmlns     = "http://www.w3.org/ns/widgets"
 		xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "com.designge.gpssolaris"
+        id        = "com.designge.owalo"
 	    versionCode="1" 
         version   = "0.0.5"
-		package="com.designge.gpssolaris">
-    <name>S-Monitoring</name>
+		package="com.designge.owalo">
+    <name>Owalo</name>
 
 
 	<icon src="logo.png" />
@@ -58,7 +58,7 @@
 
 
 	<feature name="App">
-	  <param name="android-package" value="com.designge.gpssolaris"/>
+	  <param name="android-package" value="com.designge.owalo"/>
 	</feature>
 	
   <feature name="File">
