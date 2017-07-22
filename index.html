@@ -21,6 +21,8 @@
   
 <script>
 
+   var watchID = null;
+   var watchID2 = null;
 
 var MyLat;
 var MyLong;
@@ -38,11 +40,11 @@ function onDeviceReady()
 	var opts = { timeout: 5000, enableHighAccuracy: true, maximumAge:0};
 	watchID = navigator.geolocation.watchPosition(onSuccess, onError, opts);
 	console.log("compass init");
-	navigator.compass.getCurrentHeading(onCompassSuccess, onError);
+	navigator.Compass.getCurrentHeading(onCompassSuccess, onError);
 
 	 var moptions = { frequency: 1000 };
 
-	watchID2 = navigator.compass.watchHeading(onCompassSuccess, onError, moptions);
+	watchID2 = navigator.Compass.watchHeading(onCompassSuccess, onError, moptions);
 
 
 	//setTimeout("StartWebView();",200); 
