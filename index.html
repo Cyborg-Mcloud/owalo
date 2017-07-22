@@ -13,10 +13,8 @@
 	a {text-decoration:none; color:white;}
   </style>
   <body style='padding:0; border:0; margin:0;'>
-  <center>
-  <br><br><br><br><br><br><br>
-  მიმდიმარეობს თქვენი ლოკაციის დადგენა
-  </center>
+  <div id='geopos'></div>
+
 <script>
 
 
@@ -44,9 +42,6 @@ function onSuccess(position)
 	{
 	console.log("on GPS success");
 		
-
-	
-
 	MyLat=position.coords.latitude ;
 	MyLong=position.coords.longitude ;
 	MyAlt=position.coords.altitude ;
@@ -60,18 +55,11 @@ function onSuccess(position)
 //document.getElementById('geopos').innerHTML = 'Latitude: '           + MyLat             + '<br />' +
   //                          'Longitude: '          + MyLong            + '<br />'+
 	//						'Accuracy: '          + MyAcc            + '<br />';
-	StartWebView();
+
     }
 
 document.addEventListener("deviceready", onDeviceReady, false);
 
-var ref="";
-function StartWebView()
-	{
-	var url='http://smonitoring.ge/app/index.php?myid='+Math.random()*10000000+'&lat='+MyLat+'&longt='+MyLong;
-	console.log(url);
-	ref = cordova.InAppBrowser.open(url, '_self', 'location=no, clearcache=yes');
-	}
 
 function onError()
 	{
