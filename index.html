@@ -44,8 +44,8 @@ function draw()
 	ctx.beginPath();
 	ctx.moveTo(175,175);
 
-cmx=Math.sin(comp)*50;
-cmy=Math.cos(comp)*50;
+cmx=Math.sin(comp*6.28/360)*50;
+cmy=Math.cos(comp*6.28/360)*50;
 
 	ctx.lineTo(175+cmx,175+cmy);
 	ctx.stroke();
@@ -97,12 +97,12 @@ function onSuccess(position)
 	MyAcc=position.coords.accuracy;
 
 	console.log(MyLat+ " - "+MyLong);
-document.getElementById("text").innerHTML="";
-initialize();
+	document.getElementById("text").innerHTML="";
+	initialize();
 
-document.getElementById('geopos').innerHTML = 'Latitude: '           + MyLat             + '<br />' +
-                            'Longitude: '          + MyLong            + '<br />'+
-							'Accuracy: '          + MyAcc            + '<br />';
+	document.getElementById('geopos').innerHTML = 'Latitude: '           + MyLat             + '<br />' +
+								'Longitude: '          + MyLong            + '<br />'+
+								'Accuracy: '          + MyAcc            + '<br />';
 
     }
 
@@ -111,7 +111,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 function onCompassSuccess(heading) {
        // alert('Heading: ' + heading.magneticHeading);
 	  // console.log("heading: "+heading.magneticHeading);
-	  comp=heading.magneticHeading;
+	  comp=parseInt(heading.magneticHeading);
 document.getElementById("heading_div").innerHTML=parseInt(heading.magneticHeading);
     }
 
