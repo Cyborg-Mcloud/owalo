@@ -15,7 +15,7 @@
   </style>
   <body>
   
-<canvas width=350px height=350px id='myCanvas' style='width:350px; border:1px solid red; height:350px;'></canvas>
+<canvas width=700px height=700px id='myCanvas' style='width:350px; border:1px solid red; height:350px;'></canvas>
 
 
   <div id='heading_div'></div>
@@ -59,7 +59,7 @@ function draw()
 	ctx.stroke();
 
 
-	document.getElementById("text").innerHTML="";
+//	document.getElementById("text").innerHTML="";
 	for (i=0;i<objs.length ;i++ )
 		{
 		a=objs[i][0]-MyLat;
@@ -70,13 +70,13 @@ function draw()
 		a=parseInt(a*1000);
 		b=parseInt(b*1000);
 
-document.getElementById("text").innerHTML+="<img width=20px src='"+objs[i][2]+"'> "+objs[i][3]+" | "+objs[i][0]+ " / "+objs[i][1]+  "[ "+a+" | "+b+" ]";
+//document.getElementById("text").innerHTML+="<img width=20px src='"+objs[i][2]+"'> "+objs[i][3]+" | "+objs[i][0]+ " / "+objs[i][1]+  "[ "+a+" | "+b+" ]";
 		
 
-		a=a/3;
-		b=b/3;
+		a=a/2;
+		b=b/2;
 
-document.getElementById("text").innerHTML+="final = "+a+" / "+b+"<BR>";
+//document.getElementById("text").innerHTML+="final = "+a+" / "+b+"<BR>";
 
 		ctx.fillRect(175+b,175-a,5,5);
 		ctx.font = "14px Arial";
