@@ -34,6 +34,10 @@ var ctx = canvas.getContext("2d");
 var cmx=0;
 var cmy=0;
 
+var objs=new Array();
+
+
+
 function draw()
 	{
 
@@ -44,12 +48,28 @@ function draw()
 	ctx.beginPath();
 	ctx.moveTo(175,175);
 
-cmx=Math.sin(comp*6.28/360)*50;
-cmy=-Math.cos(comp*6.28/360)*50;
+	cmx=Math.sin(comp*6.28/360)*50;
+	cmy=-Math.cos(comp*6.28/360)*50;
 
 	ctx.lineTo(175+cmx,175+cmy);
 	ctx.stroke();
+
+	for (i=0;i<objs.length ;i++ )
+		{
+		a=objs[i][0]-MyLat;
+		b=objs[i][1]-MyLong;
+		a=111*a;
+		b=111*b;
+		a=parseInt(a*1000);
+		b=parseInt(b*1000);
+
+		ctx.fillRect(175+a,175-b,2,2);
+		ctx.font = "14px Arial";
+		ctx.fillText(objs[i][3],175+a,175-b); 
+
+		}
 	
+
 	setTimeout("draw();",500);
 	}
 
@@ -153,11 +173,17 @@ function callback(results, status) {
     for (var i = 0; i < results.length; i++) {
       var place = results[i];
     //  createMarker(results[i]);
+	objs[i]=new Array();
+	objs[i][0]=results[i].geometry.viewport.f.b;
+	objs[i][1]=results[i].geometry.viewport.b.b;
+	objs[i][2]=results[i].icon;
+	objs[i][3]=results[i].name;
+
 	document.getElementById("text").innerHTML+="<img width=20px src='"+results[i].icon+"'> "+results[i].name+" | "+results[i].geometry.viewport.f.b+ " / "+results[i].geometry.viewport.b.b+"<BR>";
 
 	//alert(results[i].name);
-	console.log(results[i].geometry.viewport.b);
-	 console.log(results[i]);
+	//console.log(results[i].geometry.viewport.b);
+	// console.log(results[i]);
     }
   }
 }
