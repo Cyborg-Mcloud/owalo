@@ -54,6 +54,8 @@ function draw()
 	ctx.lineTo(175+cmx,175+cmy);
 	ctx.stroke();
 
+
+	document.getElementById("text").innerHTML="";
 	for (i=0;i<objs.length ;i++ )
 		{
 		a=objs[i][0]-MyLat;
@@ -67,6 +69,9 @@ function draw()
 		ctx.font = "14px Arial";
 		ctx.fillText(objs[i][3],175+a,175-b); 
 
+
+
+		document.getElementById("text").innerHTML+="<img width=20px src='"+objs[i][2]+"'> "+objs[i][3]+" | "+objs[i][0]+ " / "+objs[i][1]+  "[ "+a+" | "+b+" ]<BR>";
 		}
 	
 
@@ -179,7 +184,6 @@ function callback(results, status) {
 	objs[i][2]=results[i].icon;
 	objs[i][3]=results[i].name;
 
-	document.getElementById("text").innerHTML+="<img width=20px src='"+results[i].icon+"'> "+results[i].name+" | "+results[i].geometry.viewport.f.b+ " / "+results[i].geometry.viewport.b.b+"<BR>";
 
 	//alert(results[i].name);
 	//console.log(results[i].geometry.viewport.b);
