@@ -14,9 +14,11 @@
 	a {text-decoration:none; color:white;}
   </style>
   <body>
+  <div id='heading_div'></div>
 <div id='map'>asdasdas </div>
 <div id='text'></div>
   <div id='geopos' style='border:1px solid black; width:200px; height:200px;'></div>
+  
 <script>
 
 
@@ -35,7 +37,8 @@ function onDeviceReady()
 	navigator.geolocation.getCurrentPosition(onSuccess, onError, {enableHighAccuracy: true,  maximumAge:0});
 	var opts = { timeout: 5000, enableHighAccuracy: true, maximumAge:0};
 	watchID = navigator.geolocation.watchPosition(onSuccess, onError, opts);
-	
+	navigator.compass.getCurrentHeading(onCompassSuccess, onError);
+
 	//setTimeout("StartWebView();",200); 
     }
 
@@ -62,6 +65,11 @@ document.getElementById('geopos').innerHTML = 'Latitude: '           + MyLat    
     }
 
 document.addEventListener("deviceready", onDeviceReady, false);
+
+function onCompassSuccess(heading) {
+       // alert('Heading: ' + heading.magneticHeading);
+document.getElementById("heading_div").innerHTML=heading.magneticHeading;
+    }
 
 
 function onError()
@@ -101,10 +109,10 @@ function callback(results, status) {
     for (var i = 0; i < results.length; i++) {
       var place = results[i];
     //  createMarker(results[i]);
-	document.getElementById("text").innerHTML+="<img width=50px src='"+results[i].icon+"'> "+results[i].name+" | "+results[i].geometry.viewport.f.b+ " / "+results[i].geometry.viewport.b.b+"<BR>";
+	document.getElementById("text").innerHTML+="<img width=20px src='"+results[i].icon+"'> "+results[i].name+" | "+results[i].geometry.viewport.f.b+ " / "+results[i].geometry.viewport.b.b+"<BR>";
 
-//alert(results[i].name);
-console.log(results[i].geometry.viewport.b);
+	//alert(results[i].name);
+	console.log(results[i].geometry.viewport.b);
 	 console.log(results[i]);
     }
   }
