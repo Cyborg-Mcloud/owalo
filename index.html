@@ -48,8 +48,18 @@ function draw()
 	ctx.beginPath();
 	ctx.moveTo(175,175);
 
-	cmx=Math.sin(comp*6.28/360)*50;
-	cmy=-Math.cos(comp*6.28/360)*50;
+	ang=comp+90;
+	if (ang>360)
+		{
+		ang=ang-360;
+		}
+	if (ang<0)
+		{
+		ang=ang+360;
+		}
+
+	cmx=Math.sin(ang*6.28/360)*50;
+	cmy=-Math.cos(ang*6.28/360)*50;
 
 	ctx.lineTo(175+cmx,175+cmy);
 	ctx.stroke();
@@ -68,9 +78,9 @@ function draw()
 		a=a/3;
 		b=b/3;
 
-		ctx.fillRect(175-a,175-b,5,5);
+		ctx.fillRect(175-b,175-a,5,5);
 		ctx.font = "14px Arial";
-		ctx.fillText(objs[i][3],175-a,175-b); 
+		ctx.fillText(objs[i][3],175-b,175-a); 
 
 
 
