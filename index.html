@@ -191,8 +191,8 @@ function callback(results, status) {
       var place = results[i];
     //  createMarker(results[i]);
 	objs[i]=new Array();
-	objs[i][0]=parseInt(results[i].geometry.viewport.f.b*100000000)/100000000;
-	objs[i][1]=parseInt(results[i].geometry.viewport.b.b*100000000)/100000000;
+	objs[i][0]=parseInt(results[i].geometry.location.lat()*1000000)/1000000;
+	objs[i][1]=parseInt(results[i].geometry.location.lng()*1000000)/1000000;
 	objs[i][2]=results[i].icon;
 	objs[i][3]=results[i].name;
 
