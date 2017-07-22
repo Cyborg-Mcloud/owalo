@@ -6,15 +6,16 @@
     <title>Owalo</title>
 
 	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFY47FE__z9AvRLBoYG0T2XeOTiHdwzOQ&libraries=places"></script>
   </head>
   <style>
 	body {color:white; margin:0px; padding:0px;}
 	a {text-decoration:none; color:white;}
   </style>
   <body style='padding:0; border:0; margin:0;'>
+<div id='map'>asdasdas </div>
+<div id='text'></div>
   <div id='geopos' style='border:1px solid black; width:200px; height:200px;'></div>
-
 <script>
 
 
@@ -67,6 +68,46 @@ function onError()
 	}
 
 
+
+var map;
+var service;
+var infowindow;
+
+function initialize() {
+ // var pyrmont = new google.maps.LatLng(41.707265,44.769453622);
+
+var pyrmont = new google.maps.LatLng(59.4382055,24.7415448);
+
+
+
+  map = new google.maps.Map(document.getElementById('map'), {
+      center: pyrmont,
+      zoom: 15
+    });
+
+  var request = {
+    location: pyrmont,
+    radius: '500'
+  };
+
+  service = new google.maps.places.PlacesService(map);
+  service.nearbySearch(request, callback);
+}
+
+function callback(results, status) {
+  if (status == google.maps.places.PlacesServiceStatus.OK) {
+    for (var i = 0; i < results.length; i++) {
+      var place = results[i];
+    //  createMarker(results[i]);
+	document.getElementById("text").innerHTML+="<img width=50px src='"+results[i].icon+"'> "+results[i].name+" | "+results[i].geometry.viewport.f.b+ " / "+results[i].geometry.viewport.b.b+"<BR>";
+//alert(results[i].name);
+console.log(results[i].geometry.viewport.b);
+	 console.log(results[i]);
+    }
+  }
+}
+
+initialize();
 
 
 </script>
