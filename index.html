@@ -55,7 +55,7 @@ function draw()
 	cmx=Math.sin(ang*6.28/360)*50;
 	cmy=-Math.cos(ang*6.28/360)*50;
 
-	ctx.lineTo(175+cmx,175+cmy);
+	ctx.lineTo(350+cmx,350+cmy);
 	ctx.stroke();
 
 
@@ -78,7 +78,7 @@ function draw()
 
 //document.getElementById("text").innerHTML+="final = "+a+" / "+b+"<BR>";
 
-		ctx.fillRect(175+b,175-a,5,5);
+		ctx.fillRect(350+b,350-a,5,5);
 		ctx.font = "14px Arial";
 		ctx.fillText(objs[i][3],175+b,175-a); 
 
