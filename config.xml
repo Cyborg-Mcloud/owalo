@@ -57,10 +57,22 @@
 
 
 
+<feature name="Compass">
+    <param name="android-package" value="org.apache.cordova.deviceorientation.CompassListener" />
+</feature>
+
+<config-file  platform="android" parent="/manifest" mode="add">
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+   <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+	
+</gap:config-file>  
+
+
 	<feature name="App">
 	  <param name="android-package" value="com.designge.owalo"/>
 	</feature>
-
+<feature name="http://api.phonegap.com/1.0/camera"/>
   <feature name="File">
         <param name="android-package" value="org.apache.cordova.file.FileUtils" />
     </feature>
