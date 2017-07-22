@@ -37,6 +37,7 @@ function onDeviceReady()
 	navigator.geolocation.getCurrentPosition(onSuccess, onError, {enableHighAccuracy: true,  maximumAge:0});
 	var opts = { timeout: 5000, enableHighAccuracy: true, maximumAge:0};
 	watchID = navigator.geolocation.watchPosition(onSuccess, onError, opts);
+	console.log("compass init");
 	navigator.compass.getCurrentHeading(onCompassSuccess, onError);
 
 	//setTimeout("StartWebView();",200); 
@@ -55,7 +56,7 @@ function onSuccess(position)
 	MyAcc=position.coords.accuracy;
 
 	console.log(MyLat+ " - "+MyLong);
-
+document.getElementById("text").innerHTML="";
 initialize();
 
 document.getElementById('geopos').innerHTML = 'Latitude: '           + MyLat             + '<br />' +
@@ -68,6 +69,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 function onCompassSuccess(heading) {
        // alert('Heading: ' + heading.magneticHeading);
+	   console.log("heading: "+heading.magneticHeading);
 document.getElementById("heading_div").innerHTML=heading.magneticHeading;
     }
 
