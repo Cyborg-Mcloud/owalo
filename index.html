@@ -14,12 +14,44 @@
 	a {text-decoration:none; color:white;}
   </style>
   <body>
+  
+<canvas width=350px height=350px id='myCanvas' style='width:350px; border:1px solid red; height:350px;'></canvas>
+
+
   <div id='heading_div'></div>
 <div id='map'>asdasdas </div>
 <div id='text'></div>
   <div id='geopos' style='border:1px solid black; width:200px; height:200px;'></div>
   
 <script>
+
+
+var canvas = document.getElementById("myCanvas");
+var canvasWidth = canvas.width;
+var canvasHeight = canvas.height;
+var ctx = canvas.getContext("2d");
+
+var cmx=0;
+var cmy=0;
+
+function draw()
+	{
+
+	ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+
+	ctx.fillStyle="#00FF00";	
+	
+	ctx.beginPath();
+	ctx.moveTo(175,175);
+
+cmx=Math.sin(comp)*50;
+cmy=Math.cos(comp)*50;
+
+	ctx.lineTo(175+cmx,175+cmy);
+	ctx.stroke();
+	
+	setTimeout("draw();",500);
+	}
 
    var watchID = null;
    var watchID2 = null;
@@ -30,6 +62,8 @@ var MyAlt;
 var MyHead;
 var MySpeed;
 var MyAcc;
+
+var comp=0;
 
 function onDeviceReady() 
 	{
@@ -77,6 +111,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 function onCompassSuccess(heading) {
        // alert('Heading: ' + heading.magneticHeading);
 	  // console.log("heading: "+heading.magneticHeading);
+	  comp=heading.magneticHeading;
 document.getElementById("heading_div").innerHTML=parseInt(heading.magneticHeading);
     }
 
@@ -127,7 +162,7 @@ function callback(results, status) {
   }
 }
 
-
+	setTimeout("draw();",500);
 
 </script>
 
