@@ -146,11 +146,11 @@ function onSuccess(position)
 
 document.addEventListener("deviceready", onDeviceReady, false);
 
-function onCompassSuccess(heading) {
-       // alert('Heading: ' + heading.magneticHeading);
-	  // console.log("heading: "+heading.magneticHeading);
-	  comp=parseInt(heading.magneticHeading);
-document.getElementById("heading_div").innerHTML=parseInt(heading.magneticHeading);
+function onCompassSuccess(heading) 
+	{  
+	console.log(heading);
+	comp=parseInt(heading.magneticHeading);
+	document.getElementById("heading_div").innerHTML=parseInt(heading.magneticHeading);
     }
 
 
@@ -174,7 +174,7 @@ console.log("initializing");
 
   map = new google.maps.Map(document.getElementById('map'), {
       center: pyrmont,
-      zoom: 17
+      zoom: 18
     });
 
   var request = {
@@ -190,17 +190,12 @@ function callback(results, status) {
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {
       var place = results[i];
-    //  createMarker(results[i]);
+
 	objs[i]=new Array();
 	objs[i][0]=parseInt(results[i].geometry.location.lat()*1000000)/1000000;
 	objs[i][1]=parseInt(results[i].geometry.location.lng()*1000000)/1000000;
 	objs[i][2]=results[i].icon;
 	objs[i][3]=results[i].name;
-
-
-	//alert(results[i].name);
-	//console.log(results[i].geometry.viewport.b);
-	// console.log(results[i]);
     }
   }
 }
