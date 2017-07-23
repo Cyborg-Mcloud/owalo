@@ -129,8 +129,8 @@ document.addEventListener("deviceready", onDeviceReady, false);
 function onCompassSuccess(heading) 
 	{  
 	console.log(heading);
-	comp=parseInt(heading.magneticHeading);
-	document.getElementById("heading_div").innerHTML=parseInt(heading.magneticHeading);
+	comp=parseInt(heading.magneticHeading*100)/100;
+	//document.getElementById("heading_div").innerHTML=parseInt(heading.magneticHeading);
     }
 
 
@@ -186,8 +186,8 @@ function callback(results, status) {
 	b=parseInt(b*1000);
 	a=a/2;
 	b=b/2;
-	objs[i][4]=b;
-	objs[i][5]=-a;
+	objs[i][4]=parseInt(b);
+	objs[i][5]=-parseInt(a);
 
     }
   }
