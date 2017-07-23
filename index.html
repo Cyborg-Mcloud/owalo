@@ -191,7 +191,12 @@ function callback(results, status) {
 
 	if (objs[i][5]!=0)
 		{
-		objs[i][6]=Math.atan(objs[i][4]/objs[i][5])*360/6.28;
+		ma=180-parseInt(Math.atan(objs[i][4]/objs[i][5])*360/6.28);
+		if (objs[i][5]>0)
+			{
+			ma=180+ma;
+			}
+		objs[i][6]=ma;
 		}
 	else
 		{objs[i][5]=0;}
