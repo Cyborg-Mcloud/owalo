@@ -63,7 +63,7 @@ function draw()
 		{
 		ctx.fillRect(midx+objs[i][4],midy+objs[i][5],5,5);
 		ctx.font = "14px Arial";
-		ctx.fillText(objs[i][3] + " : "+objs[i][6]+" [ "+objs[i][4]+" | "+objs[i][5]+" ]",midx+objs[i][4],midy+objs[i][5]); 
+		ctx.fillText(objs[i][3] + " : "+objs[i][6]+" [ "+objs[i][7]+" ]",midx+objs[i][4],midy+objs[i][5]); 
 
 		}
 	
@@ -189,21 +189,15 @@ function callback(results, status) {
 	objs[i][4]=parseInt(b);
 	objs[i][5]=-parseInt(a);
 
-	if (objs[i][5]!=0)
-		{
-		ma=parseInt(Math.atan(objs[i][4]/-objs[i][5])*360/6.28);
-		if (ma<0)
-			{
-			ma+=180;
-			}
-		if (objs[i][4]<0)
-			{
-			ma=180+ma;
-			}
-		objs[i][6]=ma;
-		}
-	else
-		{objs[i][5]=90;}
+	if (objs[i][5]!=0){ma=90;}
+	else {ma=parseInt(Math.atan(objs[i][4]/-objs[i][5])*360/6.28);}
+	if (ma<0){ma+=180;}
+	if (objs[i][4]<0){ma=180+ma;}
+	objs[i][6]=ma;
+	
+	c=Math.sqrt((pow(a,2)+pow(b,2));
+	objs[i][7]=parseInt(c);
+	
 
     }
   }
