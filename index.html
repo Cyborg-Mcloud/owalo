@@ -65,18 +65,18 @@ function draw()
 		xa=Math.cos(obja*6.28/360)*objs[i][7];
 		ya=Math.sin(obja*6.28/360)*objs[i][7];
 
-		ctx.fillStyle="#0000FF";
-		ctx.fillRect(midx+objs[i][4],midy+objs[i][5],5,5);
-		ctx.font = "14px Arial";
-		ctx.fillText(objs[i][3] + " : "+objs[i][6]+" [ "+objs[i][7]+" ]",midx+objs[i][4],midy+objs[i][5]); 
+//		ctx.fillStyle="#0000FF";
+	//	ctx.fillRect(midx+objs[i][4],midy+objs[i][5],5,5);
+//		ctx.font = "14px Arial";
+		//ctx.fillText(objs[i][3] + " : "+objs[i][6]+" [ "+objs[i][7]+" ]",midx+objs[i][4],midy+objs[i][5]); 
 
 		if (ya<=0)
 			{
 			
 			ctx.fillStyle="#FF0000";
-			ctx.fillRect(midx+xa,midy+ya,5,5);
+			ctx.fillRect(midx+xa,midy*2+ya,5,5);
 			ctx.font = "14px Arial";
-			ctx.fillText(objs[i][3] + " : "+objs[i][6]+" [ "+objs[i][7]+" ]",midx+xa,midy+ya); 
+			ctx.fillText(objs[i][3] + " : "+objs[i][6]+" [ "+objs[i][7]+" ]",midx+xa,midy*2+ya); 
 			}
 		}
 	
@@ -197,8 +197,8 @@ function callback(results, status) {
 	console.log(i+" = "+a+" - "+b);
 	a=parseInt(a*1000);
 	b=parseInt(b*1000);
-	a=a/2;
-	b=b/2;
+	//a=a/2;
+//	b=b/2;
 	objs[i][4]=parseInt(b);
 	objs[i][5]=-parseInt(a);
 
