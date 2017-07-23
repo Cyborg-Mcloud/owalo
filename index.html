@@ -59,36 +59,16 @@ function draw()
 	ctx.lineTo(midx+cmx,midy+cmy);
 	ctx.stroke();
 
-
-//	document.getElementById("text").innerHTML="";
 	for (i=0;i<objs.length ;i++ )
 		{
-		a=objs[i][0]-MyLat;
-		b=objs[i][1]-MyLong;
-		a=111*a;
-		b=111*b;
-		console.log(i+" = "+a+" - "+b);
-		a=parseInt(a*1000);
-		b=parseInt(b*1000);
-
-//document.getElementById("text").innerHTML+="<img width=20px src='"+objs[i][2]+"'> "+objs[i][3]+" | "+objs[i][0]+ " / "+objs[i][1]+  "[ "+a+" | "+b+" ]";
-		
-
-		a=a/2;
-		b=b/2;
-
-//document.getElementById("text").innerHTML+="final = "+a+" / "+b+"<BR>";
-
-		ctx.fillRect(midx+b,midy-a,5,5);
+		ctx.fillRect(midx+objs[i][4],midy+objs[i][5],5,5);
 		ctx.font = "14px Arial";
-		ctx.fillText(objs[i][3],midx+b,midy-a); 
-
-
+		ctx.fillText(objs[i][3],midx+objs[i][4],midy+objs[i][5]); 
 
 		}
 	
 
-	setTimeout("draw();",500);
+	setTimeout("draw();",200);
 	}
 
    var watchID = null;
@@ -179,7 +159,7 @@ console.log("initializing");
 
   var request = {
     location: pyrmont,
-    radius: '200'
+    radius: '500'
   };
 
   service = new google.maps.places.PlacesService(map);
@@ -196,6 +176,19 @@ function callback(results, status) {
 	objs[i][1]=parseInt(results[i].geometry.location.lng()*1000000)/1000000;
 	objs[i][2]=results[i].icon;
 	objs[i][3]=results[i].name;
+
+	a=objs[i][0]-MyLat;
+	b=objs[i][1]-MyLong;
+	a=111*a;
+	b=111*b;
+	console.log(i+" = "+a+" - "+b);
+	a=parseInt(a*1000);
+	b=parseInt(b*1000);
+	a=a/2;
+	b=b/2;
+	objs[i][4]=b;
+	objs[i][5]=-a;
+
     }
   }
 }
