@@ -63,7 +63,7 @@ function draw()
 		{
 		ctx.fillRect(midx+objs[i][4],midy+objs[i][5],5,5);
 		ctx.font = "14px Arial";
-		ctx.fillText(objs[i][3],midx+objs[i][4],midy+objs[i][5]); 
+		ctx.fillText(objs[i][3] + " : "+objs[i][6],midx+objs[i][4],midy+objs[i][5]); 
 
 		}
 	
@@ -188,6 +188,13 @@ function callback(results, status) {
 	b=b/2;
 	objs[i][4]=parseInt(b);
 	objs[i][5]=-parseInt(a);
+
+	if (objs[i][5]!=0)
+		{
+		objs[i][6]=Math.atan(objs[i][4]/objs[i][5])*360/6.28;
+		}
+	else
+		(objs[i][5]=0;}
 
     }
   }
