@@ -189,7 +189,7 @@ function callback(results, status) {
 	objs[i][4]=parseInt(b);
 	objs[i][5]=-parseInt(a);
 
-	if (objs[i][5]!=0){ma=90;}
+	if (objs[i][5]==0){ma=90;}
 	else {ma=parseInt(Math.atan(objs[i][4]/-objs[i][5])*360/6.28);}
 	if (ma<0){ma+=180;}
 	if (objs[i][4]<0){ma=180+ma;}
