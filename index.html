@@ -48,9 +48,9 @@ function draw()
 	ctx.beginPath();
 	ctx.moveTo(350,350);
 
-	ang=comp;//+90;
-//	if (ang>360){ang=ang-360;}
-//	if (ang<0)	{ang=ang+360;}
+	ang=comp+90;
+	if (ang>360){ang=ang-360;}
+	if (ang<0)	{ang=ang+360;}
 
 	cmx=Math.sin(ang*6.28/360)*50;
 	cmy=-Math.cos(ang*6.28/360)*50;
