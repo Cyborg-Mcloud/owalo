@@ -122,7 +122,7 @@ function onDeviceReady()
 	 var moptions = { frequency: 100 };
 
 	watchID2 = navigator.compass.watchHeading(onCompassSuccess, onError, moptions);
-CameraPreview.startCamera({x: 0, y: 0, width: 350, height: 100%, toBack: true, previewDrag: true, tapPhoto: true, camera: "back"});
+CameraPreview.startCamera({x: 0, y: 0, width: 350, height: 300, camera: "back", toBack: true, previewDrag: true, tapPhoto: true});
 
 	//setTimeout("StartWebView();",200); 
     }
