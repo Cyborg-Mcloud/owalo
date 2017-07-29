@@ -12,6 +12,9 @@
   <style>
 	body {color:black; margin:0px; padding:0px; border:0px;}
 	a {text-decoration:none; color:white;}
+	html, body, .ion-app, .ion-content {
+  background-color: transparent;
+}
   </style>
   <body>
 <!--spec="https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview.git"-->  
@@ -119,7 +122,7 @@ function onDeviceReady()
 	 var moptions = { frequency: 100 };
 
 	watchID2 = navigator.compass.watchHeading(onCompassSuccess, onError, moptions);
-CameraPreview.startCamera({x: 50, y: 50, width: 300, height: 300, toBack: false, previewDrag: true, tapPhoto: true});
+CameraPreview.startCamera({x: 50, y: 50, width: 300, height: 300, toBack: true, previewDrag: true, tapPhoto: true, camera: "front"});
 
 	//setTimeout("StartWebView();",200); 
     }
