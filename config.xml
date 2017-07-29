@@ -78,7 +78,7 @@
 	<gap:plugin name="cordova-plugin-inappbrowser"  source="npm" />
 	<gap:plugin name="cordova-plugin-whitelist" source="npm" />
 	<feature name="http://api.phonegap.com/1.0/file" />
-<gap:plugin name="cordova-plugin-camera-preview" />
+<gap:plugin name="cordova-plugin-camera-preview" source="npm"/>
 
 	<gap:plugin name="cordova-plugin-inappbrowser"  source="npm" />
 
