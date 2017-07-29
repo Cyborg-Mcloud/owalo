@@ -37,7 +37,7 @@ var cmy=0;
 var objs=new Array();
 
 var midx=500;
-var midy=250;
+var midy=150;
 
 function draw()
 	{
@@ -53,8 +53,8 @@ function draw()
 	if (ang>360){ang=ang-360;}
 	if (ang<0)	{ang=ang+360;}
 
-	cmx=Math.sin(ang*6.28/360)*50;
-	cmy=-Math.cos(ang*6.28/360)*50;
+	cmx=Math.sin(ang*6.28/360)*110;
+	cmy=-Math.cos(ang*6.28/360)*20;
 
 	ctx.lineTo(midx+cmx,midy+cmy);
 	ctx.stroke();
