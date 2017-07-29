@@ -62,8 +62,8 @@ function draw()
 	for (i=0;i<objs.length ;i++ )
 		{
 		obja=objs[i][6]-comp+180;
-		xa=Math.cos(obja*6.28/360)*objs[i][7];
-		ya=Math.sin(obja*6.28/360)*objs[i][7];
+		xa=Math.cos(obja*6.28/360)*100;//objs[i][7];
+		ya=Math.sin(obja*6.28/360)*100;//objs[i][7];
 
 //		ctx.fillStyle="#0000FF";
 	//	ctx.fillRect(midx+objs[i][4],midy+objs[i][5],5,5);
@@ -150,7 +150,8 @@ function onCompassSuccess(heading)
 
 function onError()
 	{
-	alert("error");
+//	alert("error");
+	onDeviceReady() 
 	}
 
 
