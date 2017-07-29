@@ -71,7 +71,9 @@ function draw()
 		msize=50-parseInt(objs[i][7]/10);
 		if (msize<3)
 			{msize=3;}
-
+		fsize=msize/2;
+		if (fsize<12)
+			{fsize=12;}
 //		ctx.fillStyle="#0000FF";
 	//	ctx.fillRect(midx+objs[i][4],midy+objs[i][5],5,5);
 //		ctx.font = "14px Arial";
@@ -81,12 +83,12 @@ ya=ya*2;
 		if (ya<=0)
 			{
 			
-			ctx.fillStyle="#FF0000";
+			ctx.fillStyle="#000000";
 			
-			ctx.globalAlpha = 0.2;
-			ctx.fillRect(midx+xa-msize/2,midy*2+ya-msize/2,msize,msize);
 			ctx.globalAlpha = 0.5;
-			ctx.font = "14px Arial";
+			ctx.fillRect(midx+xa-msize/2,midy*2+ya-msize/2,msize,msize);
+			ctx.globalAlpha = 0.9;
+			ctx.font = "bold "+fsize+"px Arial";
 			ctx.fillText(objs[i][3] + " : "+objs[i][6]+" [ "+objs[i][7]+" ]",midx+xa,midy*2+ya); 
 			ctx.globalAlpha = 1;
 			}
@@ -122,7 +124,7 @@ function onDeviceReady()
 	 var moptions = { frequency: 100 };
 
 	watchID2 = navigator.compass.watchHeading(onCompassSuccess, onError, moptions);
-CameraPreview.startCamera({x: 0, y: 0, width: 350, height: 300, camera: "back", toBack: true, previewDrag: true, tapPhoto: true});
+CameraPreview.startCamera({x: 0, y: 0, width: 600, height: 355, camera: "back", toBack: true, previewDrag: true, tapPhoto: true});
 
 	//setTimeout("StartWebView();",200); 
     }
