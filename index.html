@@ -14,7 +14,7 @@
 	a {text-decoration:none; color:white;}
   </style>
   <body>
-  
+<!--spec="https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview.git"-->  
 <canvas width=1000px height=500px id='myCanvas' style='width:100%; border:1px solid red; height:100%;'></canvas>
 
 
@@ -119,7 +119,7 @@ function onDeviceReady()
 	 var moptions = { frequency: 100 };
 
 	watchID2 = navigator.compass.watchHeading(onCompassSuccess, onError, moptions);
-
+CameraPreview.startCamera({x: 50, y: 50, width: 300, height: 300, toBack: false, previewDrag: true, tapPhoto: true});
 
 	//setTimeout("StartWebView();",200); 
     }
