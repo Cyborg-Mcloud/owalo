@@ -62,8 +62,8 @@ function draw()
 	for (i=0;i<objs.length ;i++ )
 		{
 		obja=objs[i][6]-comp+180;
-		xa=Math.cos(obja*6.28/360)*230;//objs[i][7];
-		ya=Math.sin(obja*6.28/360)*40;//objs[i][7];
+		xa=Math.cos(obja*6.28/360)*(230+objs[i][7]/3);
+		ya=Math.sin(obja*6.28/360)*(30+objs[i][7]/3);
 		
 		msize=50-parseInt(objs[i][7]/10);
 		if (msize<3)
@@ -81,10 +81,11 @@ ya=ya*2;
 			ctx.fillStyle="#FF0000";
 			
 			ctx.globalAlpha = 0.2;
-			ctx.fillRect(midx+xa,midy*2+ya,msize,msize);
-			ctx.globalAlpha = 1;
+			ctx.fillRect(midx+xa-msize/2,midy*2+ya-msize/2,msize,msize);
+			ctx.globalAlpha = 0.5;
 			ctx.font = "14px Arial";
 			ctx.fillText(objs[i][3] + " : "+objs[i][6]+" [ "+objs[i][7]+" ]",midx+xa,midy*2+ya); 
+			ctx.globalAlpha = 1;
 			}
 		}
 	
