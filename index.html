@@ -53,8 +53,8 @@ function draw()
 	if (ang>360){ang=ang-360;}
 	if (ang<0)	{ang=ang+360;}
 
-	cmx=Math.sin(ang*6.28/360)*110;
-	cmy=-Math.cos(ang*6.28/360)*20;
+	cmx=Math.sin(ang*6.28/360)*50;
+	cmy=-Math.cos(ang*6.28/360)*50;
 
 	ctx.lineTo(midx+cmx,midy+cmy);
 	ctx.stroke();
@@ -62,8 +62,12 @@ function draw()
 	for (i=0;i<objs.length ;i++ )
 		{
 		obja=objs[i][6]-comp+180;
-		xa=Math.cos(obja*6.28/360)*100;//objs[i][7];
-		ya=Math.sin(obja*6.28/360)*100;//objs[i][7];
+		xa=Math.cos(obja*6.28/360)*230;//objs[i][7];
+		ya=Math.sin(obja*6.28/360)*20;//objs[i][7];
+		
+		msize=30-parseInt(objs[i][7]/10);
+		if (msize<3)
+			{msize=3;}
 
 //		ctx.fillStyle="#0000FF";
 	//	ctx.fillRect(midx+objs[i][4],midy+objs[i][5],5,5);
@@ -75,7 +79,7 @@ ya=ya*2;
 			{
 			
 			ctx.fillStyle="#FF0000";
-			ctx.fillRect(midx+xa,midy*2+ya,5,5);
+			ctx.fillRect(midx+xa,midy*2+ya,msize,msize);
 			ctx.font = "14px Arial";
 			ctx.fillText(objs[i][3] + " : "+objs[i][6]+" [ "+objs[i][7]+" ]",midx+xa,midy*2+ya); 
 			}
